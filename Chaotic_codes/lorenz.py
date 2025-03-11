@@ -22,7 +22,8 @@ num_points = 10
 initial_states = [np.random.rand(3) * 10 for _ in range(num_points)]
 
 # Time points
-t = np.linspace(0, 40, 4000)
+#t = np.linspace(0, 40, 4000)
+t = np.linspace(0, 80, 8000)
 
 # Solve the Lorenz system for each initial condition
 solutions = [odeint(lorenz_system, initial_state, t) for initial_state in initial_states]
@@ -66,7 +67,11 @@ def animate(i):
     return lines + points
 
 # Create the animation
-ani = animation.FuncAnimation(fig, animate, init_func=init, frames=400, interval=20, blit=False)
+# "frames" - basically the duration time
+# "interval" - milliseconds between the frames 
+#ani = animation.FuncAnimation(fig, animate, init_func=init, frames=400, interval=20, blit=False)
+ani = animation.FuncAnimation(fig, animate, init_func=init, frames=1000, interval=20, blit=False)
+#ani = animation.FuncAnimation(fig, animate, init_func=init, frames=8000, interval=10, blit=False)
 
 plt.show()
 
